@@ -20,5 +20,4 @@ mail( 'form.linkedin@gmail.com' , 'New form submission' ,
 
 header('Location: thank_you.html');
 
-
 ?>
