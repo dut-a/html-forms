@@ -40,12 +40,27 @@
 
           <label for="password"><i class="fas fa-lock"></i> Password</label>
           <div id="pwd-wrap">
+            <!-- help-tip for password input field -->
+            <i class="fas fa-question-circle tooltip">
+              <!-- The span tag holds our help-tip message. -->
+              <span class="helper-text" id="tt">Make sure your password contains at least 10 characters, 1 upper and 1 lower case letter, 1 number and 1 symbol
+                <i class="fas fa-caret-down"></i>
+                <i class="fas fa-times-circle close"></i>
+              </span>
+            </i>
             <input type="password" id="password" name="password" required>
             <i class="fas fa-eye eye-icon"></i>
           </div>
 
           <label for="city"><i class="fas fa-map-marker-alt"></i> City <span>(Optional)</span></label>
           <div id="city-wrap">             
+            <!-- help-tip for city input field -->
+             <i class="fas fa-question-circle tooltip city">
+                <span class="helper-text" id="cty">Why do we collect this information? To personalize our offerings based on your location. You can always change or edit this under your account settings. 
+                  <i class="fas fa-caret-down"></i>
+                  <i class="fas fa-times-circle close"></i>
+                </span>
+             </i>
             <input type="text" id="city" name="city">
           </div>
 
@@ -78,6 +93,28 @@
         visToggle.classList.add('fa-eye');
       }
       password = !password; // when password is false the text is showing
+    });
+
+
+    /** === help tip === */
+
+    // password help tip
+    // hide the password helper text div
+    document.querySelector('#tt').classList.add('hide');
+    // make the tooltip able to close on click
+    const tooltip = document.querySelector('.tooltip');
+    tooltip.addEventListener('click', () => {
+        document.querySelector('#tt').classList.toggle('show'); // togle the tooltip to show or hide
+        document.querySelector('#tt').classList.toggle('hide');
+    });
+
+    // city help tip
+    // hide the helper text div
+    document.querySelector('#cty').classList.add('hide'); // hide the tooltip on page load
+    const cityTooltip = document.querySelector('.tooltip.city');
+    cityTooltip.addEventListener('click', () => {
+      document.querySelector('#cty').classList.toggle('show'); // togle the tooltip to show or hide
+      document.querySelector('#cty').classList.toggle('hide');
     });
   </script>
 </body>
