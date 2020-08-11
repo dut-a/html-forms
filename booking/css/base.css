@@ -1,4 +1,4 @@
-* { 
+* {  /* basic page reset */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -10,11 +10,17 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-main { 
+main { /* adjust overall page width and center content */
   margin: auto;
-  width: 90%; 
+  width: 90%; /* give page content some room to breathe*/
   max-width: 1150px;
 }
+
+/*
+section {
+	position: relative;
+}
+*/
 
 #booking { 
   max-width: 800px;
@@ -28,7 +34,8 @@ header {
   padding: 2em;
 }
 
-#form-section { 
+#form-section { /* form container */
+  /*	position: relative;*/
 	background: #fff;
 	margin: 1em auto;
 	padding: 1.5625em;
@@ -36,11 +43,12 @@ header {
 	box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
 }
 
-.form-group { 
+.form-group { /* seperate out the 'rows' of form inputs */
+	/* position: relative;*/ /* we will be positioning the labels a little bit differently for this form so we need relative on this item */
 	margin-bottom: 20px;
 }
 
-#flight-book .form-control { /* trip duration radio buttons  */
+#flight-book .form-control { /* style the trip duration radio buttons - style the inputs and select items */
 	background-color: #fff;
 	height: 60px;
 	padding: 24px 15px 0;
@@ -54,6 +62,7 @@ header {
   width: 100%;
 }
 
+/* input focus style, customize color of focus state */
 input:focus, select:focus {
   outline: solid 2px #4fa3e3;
   box-shadow: 0 0 3px #4fa3e3;
@@ -63,6 +72,7 @@ input:focus, select:focus {
 	color: #dfe5e9;
 }
 
+/* style the placeholder text (light grey), still need vendor prefixs for a few browsers, including edge 12-18 */
 #flight-book .form-control:-ms-input-placeholder {
 	color: #dfe5e9;
 }
@@ -75,7 +85,7 @@ input:focus, select:focus {
 	background: #f9fafb;
 }
 
-#flight-book .form-label { 
+#flight-book .form-label { /* style labels */ 
 	font-weight: 700;
 	text-transform: uppercase;
 	line-height: 24px;
@@ -84,6 +94,7 @@ input:focus, select:focus {
 	color: #98c9ee;
 }
 
+/* show flights button */
 #flight-book .submit-btn {
 	color: #fff;
   cursor: pointer;
@@ -103,6 +114,7 @@ input:focus, select:focus {
 
 #cta h1 {
 	font-size: 2.5em;
+  /* text-transform: uppercase; */
 	color: #4fa3e3;
 	font-weight: 400;
 }
@@ -115,14 +127,15 @@ input:focus, select:focus {
 /* mid screen layout */
 @media screen and (min-width: 430px) {
     
-  #flight-book #trip-type label+label { 
+  #flight-book #trip-type label+label { /* create some additional spacing between 2nd and 3d radio button labels. */
     margin-left: 15px;
   }
-  #flight-book #trip-type label { 
+  #flight-book #trip-type label { /* style the radio buttons labels */
     display: inline-block;
     margin-bottom: 0;
   }
 
+  /* make a 2 column layout */
   #place-date, #details {
     display: grid;
     grid-template-columns: 48.5% 48.5%;
@@ -131,7 +144,7 @@ input:focus, select:focus {
 
 }
 /* large screen layout */
-@media screen and (min-width: 960px) { 
+@media screen and (min-width: 960px) { /* create 2 columns with CTA and form */
   #booking {
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.4) 100%);
     border-radius: 6px 0 0 6px;
@@ -146,10 +159,11 @@ input:focus, select:focus {
     margin-right: 1.5em;
   }
 
-  #form-section { 
+  #form-section { /* make the form span the available space */
     margin: 0;
   }
-  
+
+  /* last form row should be 3 columns */
   #details {
     display: grid;
     grid-template-columns: 28% 28% 38%;
