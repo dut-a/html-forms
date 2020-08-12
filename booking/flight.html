@@ -64,9 +64,11 @@
               <i class="fas fa-calendar-alt"></i>
             </div>
           </div> <!-- end details -->
-    
+
+          <h3>Passengers</h3>
           <div id="details">
-            <!--passengers -->
+            <!--alternative to stepper below -->
+            <!--
             <div class="form-group">
               <label class="form-label" for="num-of-adults">Adults (18+)</label>
               <select class="form-control" id="num-of-adults">
@@ -77,7 +79,16 @@
               </select>
               <i class="fa fa-arrow-down select-arrow" aria-hidden="true"></i>
             </div>
+            -->
+            <div class="form-group select-num">
+              <label class="stepper-label" for="num-of-adults">Adults (18+)</label>
+              <div class="stepper">
+                <button class="minus"><i class="fas fa-minus"></i></button><input class="stepper-control" id="num-of-adults" type="number" value="0"><button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
 
+            <!--alternative to stepper below -->
+            <!--
             <div class="form-group">
               <label class="form-label" for="num-of-kids">Children (0-17)</label>
               <select class="form-control" id="num-of-kids">
@@ -91,8 +102,16 @@
               </select>
               <i class="fa fa-arrow-down select-arrow" aria-hidden="true"></i>
             </div>
+            -->
 
-            <div class="form-group">
+            <div class="form-group select-num">
+              <label class="stepper-label" for="num-of-kids">Children (0-17)</label>
+              <div class="stepper">
+                <button class="minus" id="minus"><i class="fas fa-minus"></i></button><input class="stepper-control" id="num-of-kids" type="number" value="0" max="10"><button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+
+            <div class="form-group travel-class">
               <label class="form-label" for="trav-class">Travel class</label>
               <select class="form-control" id="trav-class">
                 <option>Economy class</option>
@@ -111,6 +130,26 @@
       </article>
     </section>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>        
+    $('.plus').click(function() { 
+      var counter = $(this).siblings().filter('input').val(); 
+      counter++; 
+      $(this).siblings().filter('input').val(counter); 
+      return false; 
+    });
+    
+    $('.minus').click(function() { 
+      var counter = $(this).siblings().filter('input').val();
+      if (counter > 0) {
+        counter--;
+        $(this).siblings().filter('input').val(counter);
+      }
+      return false;
+    });
+  </script>
+
 </body>
 </html>
 
