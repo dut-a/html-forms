@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Littlely styled form</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+	<form action="" id="questions" method="post" name="questions">
+		<h1>Appointment Request</h1>
+
+		<div>
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text" required>
+		</div>
+
+		<div>
+			<label for="email">Email Address</label>
+			<input id="email" name="email" type="email">
+		</div>
+
+		<div>
+			<label for="tel">Phone</label>
+			<input id="phone" name="phone" type="tel">
+		</div>
+
+		<fieldset>
+			<legend>Address</legend>
+
+			<div>
+				<label for="street">Number and Street</label>
+				<input id="street" name="street" type="text">
+			</div>
+
+			<div>
+				<label for="city">City</label>
+				<input id="city" name="city" type="text">
+			</div>
+
+
+			<div>
+				<label for="state">State</label> 
+				<select id="state" name="state">
+					<!-- filled up by JS -->
+				</select>
+			</div>
+
+			<div>
+				<label for="zip">Zip</label>
+				<input id="zip" pattern="[0-9]{5}" type="text">
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Preferred Time(s)</legend> 
+
+			<input id="morning" name="favcolor" type="checkbox" value="morning"> 
+			<label for="morning">morning</label> 
+
+			<input id="afternoon" name="favcolor" type="checkbox" value="afternoon"> 
+			<label for="afternoon">afternoon</label> 
+
+			<input id="evening" name="favcolor" type="checkbox" value="evening"> 
+			<label for="evening">evening</label>
+
+		</fieldset>
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		// state choices
+		(() => {
+			let states = [
+			"Alabama",
+			"Alaska",
+			"Arizona",
+			"Arkansas",
+			"California",
+			"Colorado",
+			"Connecticut",
+			"Delaware",
+			"District Of Columbia",
+			"Florida",
+			"Georgia",
+			"Hawaii",
+			"Idaho",
+			"Illinois",
+			"Indiana",
+			"Iowa",
+			"Kansas",
+			"Kentucky",
+			"Louisiana",
+			"Maine",
+			"Maryland",
+			"Massachusetts",
+			"Michigan",
+			"Minnesota",
+			"Mississippi",
+			"Missouri",
+			"Montana",
+			"Nebraska",
+			"Nevada",
+			"New Hampshire",
+			"New Jersey",
+			"New Mexico",
+			"New York",
+			"North Carolina",
+			"North Dakota",
+			"Ohio",
+			"Oklahoma",
+			"Oregon",
+			"Pennsylvania",
+			"Rhode Island",
+			"South Carolina",
+			"South Dakota",
+			"Tennessee",
+			"Texas",
+			"Utah",
+			"Vermont",
+			"Virginia",
+			"Washington",
+			"West Virginia",
+			"Wisconsin",
+			"Wyoming"
+		];
+		let codes = [
+			"AL",
+			"AK",
+			"AZ",
+			"AR",
+			"CA",
+			"CO",
+			"CT",
+			"DE",
+			"DC",
+			"FL",
+			"GA",
+			"HI",
+			"ID",
+			"IL",
+			"IN",
+			"IA",
+			"KS",
+			"KY",
+			"LA",
+			"ME",
+			"MD",
+			"MA",
+			"MI",
+			"MN",
+			"MS",
+			"MO",
+			"MT",
+			"NE",
+			"NV",
+			"NH",
+			"NJ",
+			"NM",
+			"NY",
+			"NC",
+			"ND",
+			"OH",
+			"OK",
+			"OR",
+			"PA",
+			"RI",
+			"SC",
+			"SD",
+			"TN",
+			"TX",
+			"UT",
+			"VT",
+			"VA",
+			"WA",
+			"WV",
+			"WI",
+			"WY"
+		];
+
+		const stateChoice = document.getElementById("state");
+		for (let i = 0; i < states.length; i++) {
+			let stateOpt = document.createElement("option");
+			stateOpt.setAttribute("value", codes[i]);
+			stateOpt.innerHTML = states[i];
+			stateChoice.appendChild(stateOpt);
+			console.log(stateOpt);
+		}
+		})();
+	</script>
+
+</body>
+</html>
